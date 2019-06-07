@@ -1,0 +1,12 @@
+#! /bin/sh
+
+exec 0<$(dirname $0)/../../../packaging/debian/globus-connect-server/debian/source/include-binaries
+
+mkdir -p prereqs
+
+cd prereqs
+while read package; do
+    name=${package%%-*}
+    curl -LOs https://pypi.org/simple/globus-sdk/${name}/${package}
+done
+cd $OLDPWD
