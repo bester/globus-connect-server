@@ -6,7 +6,8 @@ mkdir -p prereqs
 
 cd prereqs
 while read package; do
-    name=${package%%-*}
-    curl -LOs https://pypi.org/simple/globus-sdk/${name}/${package}
+    name=$(echo ${package%%-*} | tr A-Z a-z)
+    url=$(curl -Ls https://pypi.org/simple/${name}/ | grep "$package" | cut -d'"' -f2 | cut -d'#' -f1)
+    curl -LOs "$url"
 done
 cd $OLDPWD
