@@ -1,6 +1,7 @@
-globus-connect-server (4.0.58-1+gt6.@distro@) @distro@; urgency=low
+globus-connect-server (4.0.59-1+gt6.@distro@) @distro@; urgency=low
 
-  * Set text=True when communicating with subprocesses in myproxy-oauth setup
+  * Set universal_newlines=True when communicating with subprocesses in
+    myproxy-oauth setup
 
  -- Globus Toolkit <support@globus.org>  Wed, 05 Jun 2019 14:55:31 -0400
 

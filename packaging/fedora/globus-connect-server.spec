@@ -1,6 +1,6 @@
 Name:           globus-connect-server
 %global         _name %(tr - _ <<< %{name})
-Version:        4.0.58
+Version:        4.0.59
 Release:        1%{?dist}
 Summary:        Globus Connect Server
 
@@ -235,8 +235,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/globus-connect-server-web-*
 
 %changelog
-* Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.58-1
-- Set text=True when communicating with subprocesses in myproxy-oauth setup
+* Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.59-1
+- Set universal_newlines=True when communicating with subprocesses in
+  myproxy-oauth setup
 
 * Mon Jun 03 2019 Globus Toolkit <support@globus.org> 4.0.57-1
 - Match CILogon IdP based on Organization name or Display name
