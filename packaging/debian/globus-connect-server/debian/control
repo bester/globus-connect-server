@@ -61,7 +61,8 @@ Description: Globus Connect Server Installation Tool
 
 Package: globus-connect-server-web
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.4), myproxy, myproxy-oauth, globus-connect-server-common (= ${binary:Version})
+Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.4), myproxy, globus-connect-server-common (= ${binary:Version})
+Recommends: myproxy-oauth
 Description: Globus Connect Server Installation Tool
  The Globus Toolkit is an open source software toolkit used for building Grid
  systems and applications. It is being developed by the Globus Alliance and

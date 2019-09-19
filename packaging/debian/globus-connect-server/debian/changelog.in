@@ -1,3 +1,10 @@
+globus-connect-server (4.0.59-2+gt6.@distro@) @distro@; urgency=low
+
+  * Change myproxy-oauth dependency to allow it to be excluded
+    from install
+
+ -- Globus Toolkit <support@globus.org>  Thu, 19 Sep 2019 15:22:41 -0500
+
 globus-connect-server (4.0.59-1+gt6.@distro@) @distro@; urgency=low
 
   * Set universal_newlines=True when communicating with subprocesses in
