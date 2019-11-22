@@ -18,7 +18,7 @@ Summary:        Globus Connect Server
 %global         globus_sdk_name globus_sdk
 %global         globus_sdk_version  1.7.1
 %global         globus_sdk_wheel %{globus_sdk_name}-%{globus_sdk_version}-py2.py3-none-any.whl
-%if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0}  == 6
+%if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0}  == 7
 %global         pyjwt_name PyJWT
 %global         pyjwt_version 1.7.1
 %global         pyjwt_wheel %{pyjwt_name}-%{pyjwt_version}-py2.py3-none-any.whl
@@ -29,7 +29,7 @@ License:        ASL 2.0
 URL:            http://www.globus.org/
 Source:         %{_name}-%{version}.tar.gz
 Source1:        %{globus_sdk_wheel}
-%if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0}  == 6
+%if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0}  == 7
 Source2:        %{pyjwt_wheel}
 %endif
 
@@ -42,7 +42,7 @@ BuildRequires:  python3-rpm-macros
 BuildRequires:  python-rpm-macros
 %endif
 
-%if %{?fedora}%{!?fedora:0} >= 28 || %{?rhel}%{!?rhel:0} >= 7
+%if %{?fedora}%{!?fedora:0} >= 28 || %{?rhel}%{!?rhel:0} >= 8
 BuildRequires: python3-devel
 BuildRequires: python3-jwt
 %endif
