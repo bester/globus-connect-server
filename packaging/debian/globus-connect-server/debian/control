@@ -37,7 +37,7 @@ Description: Globus Connect Server Installation Tool
 
 Package: globus-connect-server-id
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.4), myproxy, myproxy-server, gsi-openssh, gsi-openssh-clients, globus-gsi-cert-utils-progs, globus-simple-ca, globus-connect-server-common (= ${binary:Version})
+Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.4), myproxy, myproxy-server, globus-gsi-cert-utils-progs, globus-simple-ca, globus-connect-server-common (= ${binary:Version})
 Description: Globus Connect Server Installation Tool
  The Globus Toolkit is an open source software toolkit used for building Grid
  systems and applications. It is being developed by the Globus Alliance and
@@ -49,7 +49,7 @@ Description: Globus Connect Server Installation Tool
 
 Package: globus-connect-server-io
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.4), myproxy, gsi-openssh, gsi-openssh-clients, globus-gsi-cert-utils-progs, globus-gridftp-server-progs (>= 9.3), globus-gss-assist-progs, libglobus-callout0 (>= 2.4), libglobus-gridmap-verify-myproxy-callout0 (>= 1.2), libglobus-gridmap-eppn-callout0 (>= 0.4), libglobus-gsi-credential1 (>= 5.6), globus-connect-server-common (= ${binary:Version})
+Depends: ${misc:Depends}, ${python3:Depends}, python3 (>= 3.4), myproxy, globus-gsi-cert-utils-progs, globus-gridftp-server-progs (>= 9.3), globus-gss-assist-progs, libglobus-callout0 (>= 2.4), libglobus-gridmap-verify-myproxy-callout0 (>= 1.2), libglobus-gridmap-eppn-callout0 (>= 0.4), libglobus-gsi-credential1 (>= 5.6), globus-connect-server-common (= ${binary:Version})
 Description: Globus Connect Server Installation Tool
  The Globus Toolkit is an open source software toolkit used for building Grid
  systems and applications. It is being developed by the Globus Alliance and

@@ -1,4 +1,4 @@
-globus-connect-server (4.0.59-2+gt6.@distro@) @distro@; urgency=low
+globus-connect-server (4.0.59-3+gt6.@distro@) @distro@; urgency=low
 
   * Change myproxy-oauth dependency to allow it to be excluded
     from install

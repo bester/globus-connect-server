@@ -1,7 +1,7 @@
 Name:           globus-connect-server
 %global         _name %(tr - _ <<< %{name})
 Version:        4.0.59
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Globus Connect Server
 
 %if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0} == 6
@@ -113,8 +113,6 @@ Globus Connect Server Common Files
 %package id
 Requires:       myproxy
 Requires:       myproxy-server
-Requires:       gsi-openssh
-Requires:       gsi-openssh-clients
 Requires:       globus-gsi-cert-utils-progs
 Requires:       globus-simple-ca
 Requires:       globus-connect-server-common = %{version}
@@ -131,8 +129,6 @@ Globus Connect Server ID
 
 %package io
 Requires:       myproxy
-Requires:       gsi-openssh
-Requires:       gsi-openssh-clients
 Requires:       globus-gsi-cert-utils-progs
 Requires:       globus-gridftp-server-progs >= 9.3
 Requires:       globus-gass-copy-progs
@@ -238,7 +234,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/globus-connect-server-web-*
 
 %changelog
-* Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.59-2
+* Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.59-3
 - Set universal_newlines=True when communicating with subprocesses in
   myproxy-oauth setup
 
