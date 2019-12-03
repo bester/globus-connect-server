@@ -1,7 +1,7 @@
 Name:           globus-connect-server
 %global         _name %(tr - _ <<< %{name})
 Version:        4.0.59
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Globus Connect Server
 
 %if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0} == 6
@@ -156,7 +156,9 @@ Globus Connect Server I/O
 
 %package web
 Requires:       myproxy
+%if %{?rhel}%{!?rhel:0} != 8
 Requires:       myproxy-oauth
+%endif
 Requires:       globus-connect-server-common = %{version}
 Summary:        Globus Connect Server Web for MyProxy OAuth configuration
 Group:          System Environment/Libraries
@@ -234,7 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/globus-connect-server-web-*
 
 %changelog
-* Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.59-3
+* Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.59-4
 - Set universal_newlines=True when communicating with subprocesses in
   myproxy-oauth setup
 
