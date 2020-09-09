@@ -167,13 +167,15 @@ class ID(gcmu.GCMU):
                 certificate_serialfile "%(cadir)s/serial"
                 certificate_out_dir "%(cadir)s/newcerts"
                 certificate_issuer_subca_certfile "%(cadir)s/cacert.pem"
-                max_cert_lifetime 168
+                max_cert_lifetime %(max_cert_lifetime)d
                 cert_dir %(certdir)s
                 """ % {
                     'cadir': cadir,
                     'passphrase': self.conf.get_myproxy_ca_passphrase(),
                     'certdir': \
-                        self.conf.get_security_trusted_certificate_directory()
+                        self.conf.get_security_trusted_certificate_directory(),
+                    'max_cert_lifetime': \
+                        self.conf.get_myproxy_max_cert_lifetime(),
                 }
 
     def configure_myproxy_pam(self, force=False):

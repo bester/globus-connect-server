@@ -1,7 +1,7 @@
 Name:           globus-connect-server
 %global         _name %(tr - _ <<< %{name})
-Version:        4.0.59
-Release:        4%{?dist}
+Version:        4.0.60
+Release:        1%{?dist}
 Summary:        Globus Connect Server
 
 %if %{?rhel}%{!?rhel:0} == 6 || %{?rhel}%{!?rhel:0} == 6
@@ -64,7 +64,11 @@ BuildRequires:  fdupes
 
 BuildRequires:  python%{python3_pkgversion}
 BuildRequires:  python%{python3_pkgversion}-setuptools
+%if %{?fedora}%{!?fedora:0} >= 28 ||  %{?rhel}%{!?rhel:0} >= 7
+BuildRequires:  python-six
+%else
 BuildRequires:  python%{python3_pkgversion}-six
+%endif
 BuildRequires:  python%{python3_pkgversion}-requests
 BuildRequires:  unzip
 
@@ -75,7 +79,11 @@ Requires:       globus-connect-server-web = %{version}
 
 Requires:  python%{python3_pkgversion}
 Requires:  python%{python3_pkgversion}-setuptools
+%if %{?fedora}%{!?fedora:0} >= 28 ||  %{?rhel}%{!?rhel:0} >= 7
+Requires:  python-six
+%else
 Requires:  python%{python3_pkgversion}-six
+%endif
 Requires:  python%{python3_pkgversion}-requests
 
 
@@ -236,6 +244,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/globus-connect-server-web-*
 
 %changelog
+* Wed Sep 16 2020 Globus Toolkit <support@globus.org> 4.0.60-1
+- add new configuration option for myproxy maximum cert lifetime
+
 * Wed Jun 05 2019 Globus Toolkit <support@globus.org> 4.0.59-4
 - Set universal_newlines=True when communicating with subprocesses in
   myproxy-oauth setup

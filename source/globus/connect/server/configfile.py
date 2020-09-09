@@ -118,6 +118,7 @@ class ConfigFile(configparser.ConfigParser):
     CA_SUBJECT_DN_OPTION = "CaSubjectDN"
     USE_PAM_LOGIN_OPTION = "UsePamLogin"
     CONFIG_FILE_OPTION = "ConfigFile"
+    MAX_CERT_LIFETIME_OPTION = "MaxCertLifetime"
 
     # [OAuth]
     # SERVER_OPTION as above
@@ -313,6 +314,10 @@ class ConfigFile(configparser.ConfigParser):
             CONFIG_FILE_OPTION.lower(): {
                 "option": CONFIG_FILE_OPTION,
                 "expression": r".*$"
+            },
+            MAX_CERT_LIFETIME_OPTION.lower(): {
+                "option": MAX_CERT_LIFETIME_OPTION,
+                "expression": r"[1-9][0-9]*",
             }
         },
         OAUTH_SECTION: {
@@ -1012,6 +1017,20 @@ class ConfigFile(configparser.ConfigParser):
             config_file = os.path.join(
                 self.root, ConfigFile.DEFAULT_DIR, 'myproxy-server.conf')
         return config_file
+
+    def get_myproxy_max_cert_lifetime(self):
+        max_cert_lifetime = None
+        if self.has_option(
+                ConfigFile.MYPROXY_SECTION,
+                ConfigFile.MAX_CERT_LIFETIME_OPTION):
+            max_cert_lifetime = self.get(
+                ConfigFile.MYPROXY_SECTION,
+                ConfigFile.MAX_CERT_LIFETIME_OPTION)
+            if max_cert_lifetime == '':
+                max_cert_lifetime = None
+        if max_cert_lifetime is None:
+            max_cert_lifetime = "168"
+        return int(max_cert_lifetime)
 
     def get_oauth_server(self):
         oauth_server = None
